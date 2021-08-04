@@ -1,0 +1,43 @@
+@charset "ISO-8859-1";
+
+@import url('http://fonts.googleapis.com/css?family=Mali');
+
+
+#header{
+    padding: 10px;
+    text-align-last: center;
+    height: 150px;
+    background-color: green;
+    font-size: 30pt;
+    color: white;
+}
+
+#flex-container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(172, 167, 167);
+}
+
+#form{
+    margin: 50px;
+    height: 400px;
+    width: 300px;
+    background-color: aliceblue;
+    padding: 100px;
+    font-size: 25pt;
+
+}
+
+#footer{
+    height: 50px;
+    background-color: rgb(28, 128, 241);
+}
+
+#welcome{
+    padding: 10px;
+    text-align-last: center;
+    height: 150px;
+    background-color: green;
+    font-size: 30pt;
+    color: white;
+}

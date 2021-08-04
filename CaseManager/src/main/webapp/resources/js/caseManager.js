@@ -1,0 +1,3 @@
+function indexFuction(){
+alert("Something")
+}
