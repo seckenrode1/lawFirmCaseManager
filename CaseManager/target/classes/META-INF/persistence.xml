@@ -3,6 +3,7 @@
 	<persistence-unit name="Case_Manager">
 			<class>org.perscholas.caseManager.models.Case</class>
 			<class>org.perscholas.caseManager.models.Contact</class>
+			<class>org.perscholas.caseManager.models.Staff</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mariadb://localhost:3306/Case_Manager" />
@@ -13,7 +14,7 @@
 				value="org.mariadb.jdbc.Driver" />
 			<property
 				name="javax.persistence.schema-generation.database.action"
-				value="create" />
+				value="drop-and-create" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>

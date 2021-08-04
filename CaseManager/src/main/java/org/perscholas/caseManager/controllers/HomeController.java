@@ -18,21 +18,21 @@ public class HomeController {
 	public HomeController(CaseService caseService) {
 		this.caseService = caseService;
 	}
-	
-	@GetMapping("/")
-	public String showLoginPage() {
-		return "login";
-	}
-	
-	@GetMapping("/home")
-	public String showHomePage() {
-		return "home";
-	}
-	
-	@GetMapping("/index")
-	public String showIndexPage() {
-		return "index";
-	}
+//	
+//	@GetMapping("/")
+//	public String showLoginPage() {
+//		return "login";
+//	}
+//	
+//	@GetMapping("/home")
+//	public String showHomePage() {
+//		return "home";
+//	}
+//	
+//	@GetMapping("/index")
+//	public String showIndexPage() {
+//		return "index";
+//	}
 	
 //	@PostMapping("/search")
 //	public String searchClientByClientNum(@RequestParam("clientNum") Integer clientNum, 
