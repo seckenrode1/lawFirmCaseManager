@@ -1,5 +1,9 @@
 package org.perscholas.caseManager.services;
 
-public interface ContactService {
+import org.perscholas.caseManager.models.Contact;
 
+public interface ContactService {
+	
+	
+	public Contact save(Contact contact);
 }
