@@ -2,7 +2,7 @@ package org.perscholas.caseManager.services.Impl;
 
 import java.util.Optional;
 
-import org.perscholas.caseManager.models.Case;
+import org.perscholas.caseManager.models.Cases;
 import org.perscholas.caseManager.repositories.CaseRepository;
 import org.perscholas.caseManager.services.CaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +19,19 @@ public class CaseServiceImpl implements CaseService {
 		this.caseRepository = caseRepository;
 	}
 	
-	public Case createCase(Case case1) {
+	public Cases createCase(Cases case1) {
 		return caseRepository.save(case1);
 	}
 	
-	public Case findCaseByCaseId(int id) {
-		Optional<Case> optCase = caseRepository.findById(id);
+	public Cases findCaseByCaseId(int id) {
+		Optional<Cases> optCase = caseRepository.findById(id);
 		if (optCase.isPresent()) {
 			return optCase.get();
 		}
 		return null;
 	}
 	
-	public void removeCase(Case case1) {
+	public void removeCase(Cases case1) {
 		caseRepository.delete(case1);
 	}
 }

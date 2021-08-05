@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Case {
+public class Cases {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -21,9 +21,9 @@ public class Case {
 	private String paralegal;
 	private String referral;
 	
-	public Case() {}
+	public Cases() {}
 	
-	public Case(int caseId, String attorney, String claimNo, LocalDate doi, int folio, String injuryDesc,
+	public Cases(int caseId, String attorney, String claimNo, LocalDate doi, int folio, String injuryDesc,
 			String paralegal, String referral) {
 		super();
 		this.caseId = caseId;
@@ -171,7 +171,7 @@ public class Case {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Case other = (Case) obj;
+		Cases other = (Cases) obj;
 		if (attorney == null) {
 			if (other.attorney != null)
 				return false;

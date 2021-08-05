@@ -28,15 +28,15 @@ public class Contact {
 	private String contactMaritalStatus;
 	private String contactSsn;
 	
-	@OneToMany(targetEntity = Case.class)
-	private List<Case> contactCases;
+	@OneToMany(targetEntity = Cases.class)
+	private List<Cases> contactCases;
 	
 	
 	public Contact() {}
 
 	public Contact(int contactId, String contactAddress, String contactCity, String contactCountry, String contactEmail,
 			String contactFirstName, String contactLastName, String contactState, int contactZip, LocalDate contactDob,
-			String contactLanguage, String contactMaritalStatus, String contactSsn, List<Case> contactCases) {
+			String contactLanguage, String contactMaritalStatus, String contactSsn, List<Cases> contactCases) {
 		super();
 		this.contactId = contactId;
 		this.contactAddress = contactAddress;
@@ -239,14 +239,14 @@ public class Contact {
 	/**
 	 * @return the contactCases
 	 */
-	public List<Case> getContactCases() {
+	public List<Cases> getContactCases() {
 		return contactCases;
 	}
 
 	/**
 	 * @param contactCases the contactCases to set
 	 */
-	public void setContactCases(List<Case> contactCases) {
+	public void setContactCases(List<Cases> contactCases) {
 		this.contactCases = contactCases;
 	}
 

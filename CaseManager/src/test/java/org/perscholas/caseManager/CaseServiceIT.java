@@ -9,7 +9,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.perscholas.caseManager.config.WebAppConfig;
-import org.perscholas.caseManager.models.Case;
+import org.perscholas.caseManager.models.Cases;
 import org.perscholas.caseManager.services.CaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,7 +23,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 class CaseServiceIT {
 	
 	private CaseService caseService;
-	private Case expected;
+	private Cases expected;
 	
 	@Autowired
 	public CaseServiceIT(CaseService caseService) {
@@ -36,7 +36,7 @@ class CaseServiceIT {
 	 */
 	@BeforeAll
 	void setup() {
-		Case u = new Case();
+		Cases u = new Cases();
 		expected = caseService.createCase(u);
 	}
 	
@@ -47,7 +47,7 @@ class CaseServiceIT {
 	
 	@Test
 	void testFindCaseByUserId() {
-		Case actual = caseService.findCaseByCaseId(expected.getCaseId());
+		Cases actual = caseService.findCaseByCaseId(expected.getCaseId());
 		assertEquals(expected, actual);
 	}
 	

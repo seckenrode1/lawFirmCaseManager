@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
 <meta charset="ISO-8859-1">
-<link rel = "stylesheet" type = "text/css" href = "css/caseManager.css">
-<link rel = "javascript" type = "text/javascript" href = "js/caseManager.js">
+<link rel = "stylesheet" type = "text/css" href = "../resources/css/caseManager.css">
+<link rel = "javascript" type = "text/javascript" href = "../resources/js/caseManager.js">
 <title>Login</title>
 </head>
 <body>
      <div id = "header">
         <h1>WSWC Case Manager</h1><br>
     </div>
-	<form action="./index" id = "flex-container" id = "form">
+	<form action="home" id = "flex-container" id = "form">
 		<div>
 			<label>Login Here!</label><br>
 			<input type="email" name="empEmail" placeholder = "Email"> <br>
@@ -21,8 +22,9 @@
 		</div>
 	</form>
         <div id = "footer">
-            <a href="aboutUs">About Us</a>
+            <a href="${pageContext.request.contextPath}/register">Register Here</a>
         </div>
+  
 </body>
 	
 </html>
