@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th = http://www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<title>Contacts</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.jqueryui.min.css">
+<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.11.3.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.10/js/dataTables.jqueryui.min.js"></script>
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+</script>
+</head>
+<body>
+	 <div th:replace = "fragments/nav_bar :: navbar"></div>
+	 <h1>Contacts</h1>
+	 <table id="example" class="display" style="width:100%">
+    	<thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>View Contact</th>
+            <th>Edit Address</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+       </thead> 
+       <tbody>
+        <th:block th:each ="contact : ${contacts}">
+            <tr>
+                <td>[[${contact.id}]]</td>
+                <td>[[${contact.contactFirstName}]]</td>
+                <td>[[${contact.contactLastName}]]</td>
+                <td><a th:href="@{'viewContact/' + ${contact.id}}">View Contact Info</a></td>
+                <td><a th:href="@{'address/edit' + ${contact.id}}">Edit Address</a></td>
+                <td><a th:href="@{'/contacts/edit/' + ${contact.id}}">Update</a></td>
+                <td><a th:href="@{'/delete-contact/' + ${contact.id}}">Delete</a></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+<br/>
+	<a href="./contacts/new">New Contact</a><br>
+	<a href="./address/new">New Address</a>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th = http://www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<link href="css/custom.css" rel="stylesheet" type="text/css">
+<title>New Contact</title>
+</head>
+<body>
+ 	<h1>Contact Info</h1>
+ 	
+		<form th:action="@{registerNewUser}" method="post" th:object="${newUser}">
+		<div>
+			<label>First Name:</label>
+			<input type="text" th:field="*{staffFirstName}" name="staffFirstName"/>
+		</div>
+		<div>
+			<label>Last Name:</label>
+			<input type="text" th:field="*{staffLastName}" name="staffLastName"/>
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="text" th:field="*{staffEmail}" name="staffEmail"/>
+		</div>
+		<div>
+			<label>Username:</label>
+			<input type="text" th:field="*{username}" name="username"/>
+		</div>
+		<div>
+			<label>Password:</label>
+			<input type="text" th:field="*{password}" name="password"/>
+		</div>
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+	</form>
+	
+	<a href="/">Cancel</a>
+</body>
+</html>
