@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th = http://www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<link rel = "stylesheet" type = "text/css" th:href= "@{/webjars/bootstrap/css/bootstrap.min.css}"> 
+<link href="css/custom.css" rel="stylesheet" type="text/css">
+<title>New Contact</title>
+</head>
+<div class = "container text-center">
+<div th:if = "${newContact.id == null}"><h1>Create New Contact</h1></div>
+<div th:unless = "${newContact.id == null}"><h1>Edit Contact</h1></div>
+
+ 	
+	<form th:action="@{save}" method="post" th:object="${newContact}" style = "max-width: 600px; margin: 0 auto;">
+		<input type = "hidden"  th:field = "*{id}" th:value = "${newContact.id}"/> 
+		<div>
+			<label class = "col-form-label col-sm-4">First Name:</label>
+			<input type="text" th:field="*{contactFirstName}" name="contactFirstName"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Last Name:</label>
+			<input type="text" th:field="*{contactLastName}" name="contactLastName"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Email:</label>
+			<input type="text" th:field="*{contactEmail}" name="contactEmail"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Phone Number:</label>
+			<input type="text" th:field="*{contactPhone}" name="contactPhone"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">SSN:</label>
+			<input type="text" th:field="*{contactSsn}" name="contactSsn"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Date of Birth:</label>
+			<input type="text" th:field="*{contactDob}" name="contactDob"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Preferred Language:</label>
+			<input type="text" th:field="*{contactLanguage}" name="contactLanguage"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Marital Status:</label>
+			<input type="text" th:field="*{contactMaritalStatus}" name="contactMaritalStatus"/>
+		</div>
+		
+		
+<!-- 		<div>
+			<label class = "col-form-label col-sm-4">Street Address:</label>
+			<input type="text" th:field="*{newContact.address}" name="newContact.address"/>
+		</div> -->
+		<div class = "text-center p3">
+			<input type="submit" value="Submit" class = "btn btn-primary" />
+		</div> 
+	</form>
+	<a href="/contacts">Cancel</a>
+</div>	
+</body>
+</html>

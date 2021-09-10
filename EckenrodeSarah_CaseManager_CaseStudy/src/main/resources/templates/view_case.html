@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th = http://www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<link rel = "stylesheet" type = "text/css" th:href= "@{/webjars/bootstrap/css/bootstrap.min.css}"> 
+</head>
+<body>
+	<h1>[[${case1.contact.contactFirstName}]]  [[${case1.contact.contactLastName}]]</h1>
+	<a th:href="@{'/cases/edit/' + ${case1.id}}">Update</a><br>
+	<a th:href="@{'/delete-case/' + ${case1.id}}">Delete</a><br>
+	<a th:href="@{'/cases'}">Back to Cases</a><br>
+	<table class="table table-striped" border = 2px>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Assigned Attorney</td>
+      <td>[[${case1.attorney}]]</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Assigned Paralegal</td>
+      <td>[[${case1.paralegal}]]</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Claim Number</td>
+      <td>[[${case1.claimNo}]]</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Folio Number</td>
+      <td>[[${case1.folio}]]</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Description of Injury</td>
+      <td>[[${case1.injuryDesc}]]</td>
+    </tr>
+    <tr>
+     <th scope="row">6</th>
+      <td>Date of Injury</td>
+      <td>[[${case1.doi}]]</td>
+    </tr>
+    <tr>
+     <th scope="row">7</th>
+      <td>Referral Source</td>
+      <td>[[${case1.referral}]]</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Contact Info </h2>
+	<table class="table table-striped" border = 2px >
+  <tbody>
+    <tr>
+
+      <td>Phone Number</td>
+      <td>[[${contact.contactPhone}]]</td>
+    </tr>
+    <tr>
+
+      <td>Email</td>
+      <td>[[${contact.contactEmail}]]</td>
+    </tr>
+    <tr>
+
+      <td>Date of Birth</td>
+      <td>[[${contact.contactDob}]]</td>
+    </tr>
+    <tr>
+
+      <td>Marital Status</td>
+      <td>[[${contact.contactMaritalStatus}]]</td>
+    </tr>
+     <tr>
+
+      <td>Social Security Number</td>
+      <td>[[${contact.contactSsn}]]</td>
+    </tr>
+    <tr>
+      <td>Primary Language</td>
+      <td>[[${contact.contactLanguage}]]</td>
+    </tr>
+  </tbody>
+</table>
+	 <h2>Addresses</h2>
+	 <table id="example" class="table table-striped" style="width:100%">
+    	<thead>
+        <tr>
+            <th>Street Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Country</th>
+<!--             <th>Update</th>
+            <th>Delete</th> -->
+        </tr>
+       </thead> 
+       <tbody>
+        <th:block th:each ="address : ${listAddresses}">
+            <tr>
+                <td>[[${address.streetAddress}]]</td>
+                <td>[[${address.city}]]</td>
+                <td>[[${address.state}]]</td>
+                <td>[[${address.zip}]]</td>
+                <td>[[${address.country}]]</td>
+<!--                 <td><a th:href="@{'/contacts/edit/' + ${contact.id}}">Update</a></td>
+                <td><a th:href="@{'/delete-contact/' + ${contact.id}}">Delete</a></td> -->
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+<br/>
+</body>
+</html>

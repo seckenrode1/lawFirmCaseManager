@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th = http://www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<title>New Case</title>
+<link rel = "stylesheet" type = "text/css" th:href= "@{/webjars/bootstrap/css/bootstrap.min.css}"> 
+<!-- <link href="css/custom.css" rel="stylesheet" type="text/css"> -->
+</head>
+<body>
+
+<div class = "container text-center">
+<div th:if = "${newCase.id == null}"><h1>Create New Case</h1></div>
+<div th:unless = "${newCase.id == null}"><h1>Edit Case</h1></div>
+
+ 	
+	<form th:action="@{save}" method="post" th:object="${newCase}" style = "max-width: 600px; margin: 0 auto;">
+	<input type = "hidden"  th:field = "*{id}" th:value = "${newCase.id}"/>
+	 	<div class = "m-3">
+			<label class = "col-form-label col-sm-4">Contact:</label>
+			<select th:field = "*{contact}" class = "form-control" required>
+				<th:block th:each = "con : ${listContacts}">
+				<option th:text = "${con.contactLastName + ', ' + con.contactFirstName }" th:value = "${con.id}"/>
+				</th:block>
+			</select>
+			
+		</div>  
+		<div>
+			<label class = "col-form-label col-sm-4">Attorney:</label>
+			<input type="text" th:field="*{attorney}" name="attorney"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Claim Number:</label>
+			<input type="text" th:field="*{claimNo}" name="claimNo"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Date of Injury:</label>
+			<input type="text" th:field="*{doi}" name="doi"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Folio Number:</label>
+			<input type="text" th:field="*{folio}" name="folio"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Injury Description:</label>
+			<input type="text" th:field="*{injuryDesc}" name="injuryDesc"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Paralegal:</label>
+			<input type="text" th:field="*{paralegal}" name="paralegal"/>
+		</div>
+		<div>
+			<label class = "col-form-label col-sm-4">Referral Source:</label>
+			<input type="text" th:field="*{referral}" name="referral"/>
+		</div>
+		<div class = "text-center p3">
+			<input type="submit" value="Submit" class = "btn btn-primary" />
+		</div>
+	</form>
+	<a href="/cases">Cancel</a>
+</div>	
+</body>
+</html>

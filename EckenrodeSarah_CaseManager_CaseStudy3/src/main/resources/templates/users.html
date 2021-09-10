@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th = http://www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<title>Cases</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.jqueryui.min.css">
+<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.11.3.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.10/js/dataTables.jqueryui.min.js"></script>
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+</script>
+</head>
+<body>
+<div th:replace = "fragments/nav_bar :: navbar"></div>
+
+	 <div>
+	  <table id="example" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>User Role</th>
+            
+            <th>Update</th>
+            <th>Delete</th>
+           </tr> 
+        </thead>
+        <tbody>
+        <th:block th:each ="user : ${users}">
+            <tr>
+                <td>[[${user.id]]</td>
+                <td>${user.userFirstName}</td>
+                <td>${user.userLastName}</td>
+                <td>${user.userEmail}</td>
+                <td>${user.username}</td>
+              	<td>${user.password}</td> 
+                <td>${user.userRole}</td>
+
+                <td><a th:href="@{'/update-user/' + ${user.userId}}">Update</a></td>
+                <td><a th:href="@{'/delete-user/' + ${user.userId}}">Delete</a></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    </div>
+    	 <a href="/register_user">Add New User</a>
+</body>
+</html>
